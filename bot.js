@@ -11,18 +11,10 @@ bot.onText(/\/game/, (msg) => {
 bot.on('callback_query', (query) => {
   if (query.game_short_name === 'meta_tower_game') {
     const gameUrl = 'https://tower.developerpie.com/game.html';
-    bot.answerCallbackQuery(query.id, {url: gameUrl, cache_time: 0});
-  }
-});
-
-// Handle game score updates
-bot.on('inline_query', (query) => {
-  if (query.query === 'game') {
-    bot.answerInlineQuery(query.id, [{
-      type: 'game',
-      id: '1',
-      game_short_name: 'meta_tower_game'
-    }]);
+    bot.answerCallbackQuery({
+      callback_query_id: query.id,
+      url: gameUrl
+    });
   }
 });
 
