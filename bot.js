@@ -10,7 +10,7 @@ bot.onText(/\/game/, (msg) => {
 bot.on('callback_query', (query) => {
   if (query.game_short_name) {
     // Replace with the URL where your game is hosted
-    const gameUrl = 'http://tower.developerpie.com/';
+    const gameUrl = 'https://tower.developerpie.com/';
     bot.answerCallbackQuery(query.id, {url: gameUrl});
   }
 });
