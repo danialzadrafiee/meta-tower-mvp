@@ -5,17 +5,15 @@ const bot = new TelegramBot(token, {polling: true});
 
 bot.onText(/\/game/, (msg) => {
   const chatId = msg.chat.id;
-  bot.sendGame(chatId, 'meta_tower_game');
-});
-
-bot.on('callback_query', (query) => {
-  if (query.game_short_name === 'meta_tower_game') {
-    const gameUrl = 'https://tower.developerpie.com/game.html';
-    bot.answerCallbackQuery({
-      callback_query_id: query.id,
-      url: gameUrl
-    });
-  }
+  const gameUrl = 'https://tower.developerpie.com/game.html';
+  
+  bot.sendMessage(chatId, 'Play our game!', {
+    reply_markup: {
+      inline_keyboard: [[
+        { text: "Play Now!", web_app: { url: gameUrl } }
+      ]]
+    }
+  });
 });
 
 console.log('Bot is running...');
