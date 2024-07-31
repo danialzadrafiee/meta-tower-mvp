@@ -7,10 +7,11 @@ bot.onText(/\/game/, (msg) => {
   const chatId = msg.chat.id;
   const gameUrl = 'https://tower.developerpie.com/dist/index.html';
   
-  bot.sendMessage(chatId, 'Play our game!', {
+  bot.sendPhoto(chatId, 'https://play-lh.googleusercontent.com/Ai4Ld0NsDjBi_TZwJ2KBSWFfmN_GJ9ckesdC3q1mXvzdiouAqgbwj6LoCvRn0x3rWMs', {
+    caption: '🎮 Welcome to Our Exciting Game! 🎮\n\nReady to begin your adventure?',
     reply_markup: {
       inline_keyboard: [[
-        { text: "Play Now!", web_app: { url: gameUrl } }
+        { text: "▶️ Start Game", web_app: { url: gameUrl } }
       ]]
     }
   });
