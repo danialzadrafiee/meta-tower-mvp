@@ -5,7 +5,7 @@ const bot = new TelegramBot(token, {polling: true});
 
 bot.onText(/\/game/, (msg) => {
   const chatId = msg.chat.id;
-  const gameUrl = 'https://tower.developerpie.com/game.html';
+  const gameUrl = 'https://tower_bot.developerpie.com/dist/index.html';
   
   bot.sendMessage(chatId, 'Play our game!', {
     reply_markup: {
